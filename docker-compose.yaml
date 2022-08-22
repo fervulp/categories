@@ -1,0 +1,57 @@
+version: "3"
+services:
+  mariadb:
+    image: mariadb:10.7
+    volumes:
+    - ./mariadb:/var/lib/mysql
+    environment:
+      MARIADB_USERNAME: root
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: sandbox
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.1.1
+    restart: always
+    ports:
+    - "8081:80"
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: mariadb
+    depends_on:
+    - mariadb
+    links:
+    - mariadb
+
+  apache-php:
+    image: php:7.4-apache
+    stdin_open: true
+    tty: true
+    build: ./server
+    volumes:
+    - ./server:/var/www/html
+    ports:
+    - "8080:80"
+    depends_on:
+    - mariadb
+    links:
+    - mariadb
+
+  react-app:
+    image: node:16
+    build: ./client
+    ports:
+    - "3000:3000"
+    volumes:
+    - ./client/src:/app/src
+    environment:
+    - CHOKIDAR_USEPOLLING=true
+    depends_on:
+    - apache-php
+    links:
+    - apache-php
+  
+
+
+
+
+  

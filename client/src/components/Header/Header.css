@@ -1,0 +1,39 @@
+.head {
+    background-color: #89B5AF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+}
+.tools {
+    float: left;
+    line-height: 50px;
+    width: 360px;
+} 
+
+.tool {
+    margin: 0px 10px 0px 10px;
+    height: 35px;
+    width: 35px;
+    vertical-align: middle;
+}
+
+#cancelButton {
+    background-color: #fad201;
+}
+
+
+.form {
+    display:inline-block; 
+    line-height: 50px;
+}
+.form input {
+    margin: 0px 10px 0px 10px;
+    vertical-align: middle;
+}
+
+
+.num {
+    width: 60px;
+}

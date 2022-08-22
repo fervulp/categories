@@ -1,4 +1,3 @@
-![изображение](https://user-images.githubusercontent.com/77237424/185985130-09720ca0-5e99-484f-8f50-f44757a520cf.png)
 # How to use?
 * Clone or download this repository;
 * Install docker and docker-compose;
@@ -16,3 +15,6 @@
 * password - root
 * database - sandbox
 * table - category
+
+# Screenshots
+![изображение](https://user-images.githubusercontent.com/77237424/185985130-09720ca0-5e99-484f-8f50-f44757a520cf.png)
